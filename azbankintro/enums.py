@@ -56,8 +56,8 @@ class BankEnum(TextChoices):
         return d[self.value]
 
     @classmethod
-    def find_by_id(cls, id):
+    def find_by_id(cls, value):
         d = cls._get_id_dictionary()
         for key in d:
-            if d[key] == id:
+            if d[key] == value:
                 return key
