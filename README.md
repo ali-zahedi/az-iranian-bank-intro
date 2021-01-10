@@ -107,6 +107,11 @@ iban = IBAN.calculate_iban(BankEnum.MELLI_BANK, '0338404829005')
 print(iban.__str__())
 print(iban.format('-'))
 print(iban.format(' '))
+"""
+IR040170000000338404829005
+IR04-0170-0000-0033-8404-8290-05
+IR04 0170 0000 0033 8404 8290 05
+"""
 ```
 
 # TODO
