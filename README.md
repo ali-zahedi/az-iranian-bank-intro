@@ -42,6 +42,24 @@ except CardValidationException:
 ```
 
 
+<h2 dir="rtl">اعتبار سنجی IBAN یا شماره شبا</h2>
+
+<p dir="rtl">
+برای اعتبار سنجی شماره IBAN کافی است متد اعتبار سنجی را ایمپورت کنیم و شماره IBAN مورد نظر را به آن پاس دهیم. در صورتی که شماره مورد نظر معتبر باشد برنامه به کار خود ادامه خواهد داد و در صورتی که نا معتبر باشد exception ارسال خواهد شد. 
+</p>
+
+```python
+import logging
+from azbankintro import iban_validate, IBANValidationException
+
+try:
+    iban_validate('IR062960000000100324200001')
+    logging.debug('شماره IBAN معتبر است.')     
+except IBANValidationException:
+    logging.debug('شماره IBAN نا معتبر است.')
+```
+
+
 # TODO
 
 - [ ] Documentation
@@ -50,9 +68,9 @@ except CardValidationException:
 
 - [ ] Logo
 
-- [ ] Validate card 
+- [X] Validate card 
 
-- [ ] Validate IBAN
+- [X] Validate IBAN
 
 
 
