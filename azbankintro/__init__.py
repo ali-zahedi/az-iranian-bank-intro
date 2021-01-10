@@ -1,7 +1,7 @@
 __all__ = [
     'TextChoices', 'IntegerChoices', 'gettext_lazy',
     'card_validate', 'CardValidationException',
-    'iban_to_number', 'iban_parser', 'iban_validate', 'IBANValidationException',
+    'IBAN', 'iban_validate', 'IBANValidationException', 'BankDoesNotExistException',
     'BankEnum',
 ]
 
@@ -29,4 +29,4 @@ except ModuleNotFoundError:
 from .validations import *
 from .exceptions import *
 from .enums import BankEnum
-from .utils import iban_parser, iban_to_number
+from .iban import IBAN
