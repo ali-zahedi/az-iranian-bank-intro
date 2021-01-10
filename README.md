@@ -60,11 +60,22 @@ except IBANValidationException:
 ```
 
 
+<h2 dir="rtl">تبدیل شماره حساب به شبا یا IBAN</h2>
+
+<p dir="rtl">
+در صورتی که تمایل دارید شماره حساب بانک مورد را تبدیل به شماره شبا کنید می توانید از ساختار زیر استفاده کنید. 
+</p>
+
+```python
+from azbankintro import *
+BankEnum.MELLI_BANK.get_iban('0338404829005')
+```
+
 # TODO
 
 - [ ] Documentation
 
-- [ ] Bank list
+- [X] Bank list
 
 - [ ] Logo
 
@@ -72,6 +83,7 @@ except IBANValidationException:
 
 - [X] Validate IBAN
 
+- [X] Calculate IBAN
 
 
 ## توسعه
