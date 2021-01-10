@@ -71,6 +71,16 @@ from azbankintro import *
 BankEnum.MELLI_BANK.get_iban('0338404829005')
 ```
 
+<p dir="rtl">
+یا می توانید به گونه زیر عمل کنید
+</p>
+
+```python
+from azbankintro import *
+bank_type = 'BMI'
+BankEnum.calculate_iban(bank=bank_type, value='0338404829005')
+```
+
 # TODO
 
 - [ ] Documentation

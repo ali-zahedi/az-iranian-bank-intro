@@ -71,3 +71,8 @@ class BankEnum(TextChoices):
         for key in d:
             if d[key] == value:
                 return key
+
+    @classmethod
+    def calculate_iban(cls, bank: str, value: str) -> str:
+        b = BankEnum(bank)
+        return b.get_iban(value)
