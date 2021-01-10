@@ -60,7 +60,10 @@ except IBANValidationException:
 ```
 
 
-<h2 dir="rtl">تبدیل شماره حساب به شبا یا IBAN</h2>
+<h2 dir="rtl">استفاده از کلاس IBAN</h2>
+
+
+<h3 dir="rtl">تبدیل شماره حساب به شبا یا IBAN</h2>
 
 <p dir="rtl">
 در صورتی که تمایل دارید شماره حساب بانک مورد را تبدیل به شماره شبا کنید می توانید از ساختار زیر استفاده کنید. 
@@ -68,17 +71,42 @@ except IBANValidationException:
 
 ```python
 from azbankintro import *
-BankEnum.MELLI_BANK.get_iban('0338404829005')
+IBAN.calculate_iban(BankEnum.MELLI_BANK, '0338404829005')
 ```
 
 <p dir="rtl">
-یا می توانید به گونه زیر عمل کنید
+در صورتی که نوع بانک مد نظر را ندارید و فقط رشته آن را دارید می توانید از کد زیر جهت دریافت بانک استفاده کنید. 
 </p>
 
 ```python
 from azbankintro import *
-bank_type = 'BMI'
-BankEnum.calculate_iban(bank=bank_type, value='0338404829005')
+s = 'BMI'
+bank_type = BankEnum(s)
+IBAN.calculate_iban(bank_type, '0338404829005')
+```
+
+<p dir="rtl">
+در صورتی که یک instance از نوع IBAN دارید نیز می توانید عملیات اعتبار سنجی را به گونه زیر انجام دهید. 
+</p>
+
+```python
+from azbankintro import *
+s = 'BMI'
+bank_type = BankEnum(s)
+iban = IBAN.calculate_iban(bank_type, '0338404829005')
+iban.validate()
+```
+
+<p dir="rtl">
+می توانید از فرمتر نیز استفاده کنید. 
+</p>
+
+```python
+from azbankintro import *
+iban = IBAN.calculate_iban(BankEnum.MELLI_BANK, '0338404829005')
+print(iban.__str__())
+print(iban.format('-'))
+print(iban.format(' '))
 ```
 
 # TODO

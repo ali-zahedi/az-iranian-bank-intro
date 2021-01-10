@@ -1,7 +1,8 @@
 from types import DynamicClassAttribute
 
 from azbankintro import TextChoices, gettext_lazy as _
-from azbankintro.utils import iban_to_number
+from .exceptions import BankDoesNotExistException
+
 
 class BankEnum(TextChoices):
     CENTRAL_BANK = 'CBI_BANK', _('Central Bank of the Islamic Republic of Iran')  #
@@ -55,24 +56,10 @@ class BankEnum(TextChoices):
         d = self._get_id_dictionary()
         return d[self.value]
 
-    def get_iban(self, value):
-        """IBAN calculation."""
-        cc = 'IR'
-        cd = '00'
-        bban = self.id + '0' + f"{value:0>18}"
-        t_iban = f'{cc}{cd}{bban}'
-        tn_iban = iban_to_number(t_iban)
-        cd = str(98 - int(tn_iban) % 97)
-        return f'{cc}{cd}{bban}'
-
     @classmethod
     def find_by_id(cls, value):
         d = cls._get_id_dictionary()
         for key in d:
             if d[key] == value:
                 return key
-
-    @classmethod
-    def calculate_iban(cls, bank: str, value: str) -> str:
-        b = BankEnum(bank)
-        return b.get_iban(value)
+        raise BankDoesNotExistException()
