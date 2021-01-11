@@ -16,8 +16,8 @@ try:
 
     if django.__version__ >= '3.0':
 
-        TextChoices = django.models.TextChoices
-        IntegerChoices = django.models.IntegerChoices
+        TextChoices = django.db.models.TextChoices
+        IntegerChoices = django.db.models.IntegerChoices
     else:
         TextChoices, IntegerChoices = _import_enum_local()
 
