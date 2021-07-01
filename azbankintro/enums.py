@@ -24,7 +24,10 @@ class BankEnum(TextChoices):
     MASKAN_BANK = 'MASKAN_BANK', _('Maskan bank')  # بانک مسکن
     MELLAT_BANK = 'MELLAT_BANK', _('Mellat bank')  # بانک ملت
     TOSE_CREDIT_INSTITUTE = 'CID', _('Credit Institute of Development')  # موسسه اعتباری توسعه
+    TOSE_TAVON = 'TT_BANK', _('Tose tavon bank')  # بانک توسعه تعاون
+    AYANDEH_BANK = 'AYANDEH_BANK', _('Ayandeh bank')  # بانک آینده
 
+    
     @classmethod
     def _get_id_dictionary(cls):
         d = {
@@ -47,6 +50,8 @@ class BankEnum(TextChoices):
             cls.MASKAN_BANK: '014',
             cls.MELLAT_BANK: '012',
             cls.TOSE_CREDIT_INSTITUTE: '051',
+            cls.TOSE_TAVON: '022',
+            cls.AYANDEH_BANK: '062',
         }
         return d
 
